@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mercury.dao.TestService">
+    <select id="getTestById" resultType="com.mercury.entity.Test">
+        select * from test
+        where id = #{id}
+    </select>
+
+    <select id="listTest" resultType="com.mercury.entity.Test">
+        select * from test
+        order by id
+    </select>
+    
+    <insert id="saveTest" parameterType="com.mercury.entity.Test">
+        insert into test(
+		id, 
+		name, 
+		gmt_modified
+		)
+        values(
+	    #{id}, 
+	    #{name}, 
+	    #{gmtModified}
+        )
+    </insert>
+    
+    <update id="updateTest" parameterType="com.mercury.entity.Test">
+        update test
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name}, 
+            </if>
+            <if test="gmtModified != null and gmtModified != ''">
+                gmtModified = #{gmtModified}            
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    
+    <delete id="deleteTest">
+        delete from test
+        where id = #{id}
+    </delete>
+</mapper>

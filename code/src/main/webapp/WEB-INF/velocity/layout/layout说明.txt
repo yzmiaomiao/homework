@@ -1,0 +1,3 @@
+1. $screen_content 	请求渲染后的模板赋值给$screen_content
+2. 如果不想用配置中默认的layout，可以在每个vm上加：#set($layout = "/layout/layout2.vm")
+3. 如果想关闭layout功能，则只需要引入layout.vm就行：里面只有空的$screen_content2参数

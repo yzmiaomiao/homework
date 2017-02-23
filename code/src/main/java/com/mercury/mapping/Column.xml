@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mercury.dao.ColumnService">
+    <select id="listColumns" resultType="com.mercury.entity.Column">
+        SELECT DISTINCT column_name,column_default,data_type,column_comment,column_key 
+        FROM Information_schema.COLUMNS 
+        where TABLE_NAME='test'
+    </select>
+</mapper>
